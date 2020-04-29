@@ -2,7 +2,7 @@
 
 ## 创建仓库
 
-在 [github](https://github.com) 或 [码云](https://gitee.com) 等基于 [git](https://git-scm.com/) 的源码托管平台上创建一个 git 仓库。
+在 [github](https://github.com) 或 [码云](https://gitee.com) 等基于 [git](https://git-scm.com/) 的源码托管平台上创建一个 git 仓库。可参考示例 [blocklang/api-web-api](https://github.com/blocklang/api-web-api)
 
 注意：当前仅支持公开的仓库。
 
@@ -70,8 +70,8 @@ API 仓库以增量的方式存储 API 变更记录。约定使用如下项目�
 
 支持的变更操作有：
 
-1. [`createObject`](./create_object.md) - 创建一个 js 对象
-2. [`addFunction`](./add_function.md) - 在 js 对象中增加一个函数
+1. [`createObject`](./create_object.md) - 创建一个 JavaScript 对象
+2. [`addFunction`](./add_function.md) - 在 JavaScript 对象中增加一个函数
 
 注意：
 
@@ -79,4 +79,4 @@ API 仓库以增量的方式存储 API 变更记录。约定使用如下项目�
 2. 如果该文件没有发布，则可以随意调整；
 3. 如果该文件已发布，则不能修改和删除。
 
-这里有一个很关键的时间节点，即发布。一个文件已发布，是指文件中的内容稳定后，在 git 仓库上[标注 tag](https://git-scm.com/docs/git-tag)。
+这里有一个很关键的时间节点，即发布。一个文件已发布，是指文件中的内容稳定后，在 git 仓库上[标注了 tag](https://git-scm.com/docs/git-tag)。
