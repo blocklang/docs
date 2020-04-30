@@ -20,6 +20,7 @@
     package.json             - 项目配置文件
     tsconfig.json            - TypeScript 配置文件
     .dojorc                  - dojo 配置文件
+    .commitlintrc.json       - commit lint 配置文件
     src                      - 存放源文件
         {component}          - 组件名称
             index.ts         - 组件实现
@@ -38,6 +39,7 @@
     package.json
     tsconfig.json
     .dojorc
+    .commitlintrc.json
     src
         console
             index.ts
@@ -211,6 +213,16 @@ TypeScript 配置文件，默认使用如下配置，可按需调整：
 			"src/console"
 		]
 	}
+}
+```
+
+### .commitlintrc.json
+
+用于规范 git commit 信息的格式，使用默认配置。
+
+```json
+{
+    "extends": ["@commitlint/config-conventional"]
 }
 ```
 
