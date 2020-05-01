@@ -2,7 +2,7 @@
 
 ## 创建 git 仓库
 
-在 [github](https://github.com) 或 [码云](https://gitee.com) 等基于 [git](https://git-scm.com/) 的源码托管平台上创建一个 git 仓库。可参考示例仓库 [blocklang/api-web-api](https://github.com/blocklang/api-web-api)
+在 [github](https://github.com) 或 [码云](https://gitee.com) 等基于 [git](https://git-scm.com/) 的源码托管平台上创建一个 git 仓库。可参考示例仓库 [blocklang/api-web-api](https://github.com/blocklang/api-web-api)。
 
 注意：当前仅支持公开的仓库。
 

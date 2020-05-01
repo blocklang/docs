@@ -4,7 +4,7 @@
 
 ## 创建 git 仓库
 
-在 [github](https://github.com) 或 [码云](https://gitee.com) 等基于 [git](https://git-scm.com/) 的源码托管平台上创建一个 git 仓库。可参考示例仓库 [blocklang/web-api](https://github.com/blocklang/web-api)
+在 [github](https://github.com) 或 [码云](https://gitee.com) 等基于 [git](https://git-scm.com/) 的源码托管平台上创建一个 git 仓库。可参考示例仓库 [blocklang/web-api](https://github.com/blocklang/web-api)。
 
 注意：当前仅支持公开的仓库。
 
@@ -48,7 +48,7 @@
 
 ### component.json
 
-`component.json` 用于描述 PROD 仓库的基本信息，包括如下属性：
+component.json 用于描述 PROD 仓库的基本信息，包括如下属性：
 
 | 名称        | 类型       | 描述                                    | 必填 |
 | ----------- | ---------- | --------------------------------------- | ---- |
@@ -58,7 +58,7 @@
 | category    | `string`   | 组件库的种类，值为 `WebAPI`             | 是   |
 | language    | `string`   | 组件库使用的编程语言，值为 `TypeScript` | 是   |
 | std         | `boolean`  | 是否标准库，默认为 `false`              | 否   |
-| dev         | `boolean`  | 是否用于开发模式，值为 `true`           | 是   |
+| dev         | `boolean`  | 是否用于开发模式，值为 `false`           | 是   |
 | appType     | `string`   | app 类型，值为 `web`                    | 是   |
 | api         | `object`   | 实现的 api 仓库信息                     | 是   |
 | components  | `string[]` | 存储组件的相对路径                      | 是   |
@@ -80,7 +80,7 @@ api 属性：
   "category": "WebAPI",
   "language": "TypeScript",
   "std": false,
-  "dev": true,
+  "dev": false,
   "appType": "web",
   "api": {
     "git": "https://github.com/blocklang/api-web-func.git",
@@ -89,6 +89,8 @@ api 属性：
   "components": ["src/console"]
 }
 ```
+
+注意：PROD 项目和 IDE 项目都要实现 API 项目，使用 `api.git` 和 `api.version` 指向 API 项目地址和版本号。
 
 ### package.json
 
@@ -117,7 +119,6 @@ api 属性：
     },
     "dependencies": {
         "@dojo/framework": "7.0.0-rc.2",
-        "designer-core": "~0.0.1-alpha.83",
         "tslib": "~1.11.1"
     },
     "devDependencies": {
@@ -163,7 +164,8 @@ api 属性：
 1. 在项目根目录下执行 `npm run build` 命令，会构建项目并将结果保存到根目录下的 `dist/` 文件夹中；
 2. 在项目根目录下执行 `npm run test` 命令，会运行测试用例；
 3. 在提交代码时，git commit message 要遵循 [commit](https://www.conventionalcommits.org/en/v1.0.0/) 规范；
-4. 需要将 `dist/` 文件中的内容发布到 [npmjs](https://www.npmjs.com/)。
+4. 需要将 `dist/` 文件中的内容发布到 [npmjs](https://www.npmjs.com/)；
+5. 按需将依赖调整为最新版本。
 
 ### tsconfig.json
 
@@ -251,3 +253,7 @@ describe("console", () => {
 });
 ```
 如果需要 mock 对象，请使用 [sinon](https://sinonjs.org/)。执行 `npm run test` 命令运行测试用例。
+
+## 编译
+
+在项目根目录下，先执行 `npm install` 安装依赖，然后执行 `npm run build`，以确认是否能编译通过。构建完成后，输出的内容保存在 `dist` 目录下。
