@@ -1,6 +1,6 @@
 # `addFunction`
 
-在所选的 JavaScript 对象中添加一个函数。
+在所选的 JavaScript 对象中添加一个或多个函数。
 
 ## 属性
 
