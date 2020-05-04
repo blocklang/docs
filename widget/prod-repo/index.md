@@ -10,11 +10,13 @@
 
 ## 项目结构
 
-PROD 项目分两种，一种是在项目内实现 Widget；另一种是 A 仓库中已实现了 Widget，但并不包含 `component.json` 文件，因此需要新建一个 PROD 项目来存放 `component.json` 文件，并引用 A 仓库中的 Widget。在 `component.json` 文件也可以同时引用本项目和其他项目中的 Widget.
+PROD 项目分两种，一种是在项目内实现 Widget；另一种是第三方仓库中已实现了 Widget，但根目录下并不存在 `component.json` 文件，因此需要新建一个 PROD 仓库来存放 `component.json` 文件，并引用第三方仓库中的 Widget。
 
-### 在项目中实现 Widget
+在 `component.json` 文件也可以同时引用本项目和其他项目中的 Widget。
 
-本项目是一个 TypeScript 项目，使用 [@dojo/cli-build-widget](https://github.com/dojo/cli-build-widget) 构建工具。
+### 在本仓库中实现 Widget
+
+本仓库中存储的是一个 TypeScript 项目，使用 [@dojo/cli-build-widget](https://github.com/dojo/cli-build-widget) 构建工具。
 
 ```text
 项目根目录
@@ -29,16 +31,23 @@ PROD 项目分两种，一种是在项目内实现 Widget；另一种是 A 仓�
             index.spec.tsx    - Widget 测试用例
 ```
 
-### 引用另一项目中的 Widget
+注意：**本项目必须要发布到 [npmjs.com](https://npmjs.com)**。
 
-项目中只包含一个 `component.json` 文件，在其中引用另一个仓库中的 Widget，项目结构如下：
+### 本仓库引用第三方仓库中的 Widget
+
+仓库根目录中只包含一个 `component.json` 文件，在其中引用另一个仓库中的 Widget，项目结构如下：
 
 ```text
 项目根目录
     component.json            - 存储 PROD 仓库的基本信息
 ```
 
-另一个项目必须是基于 Dojo 的 Widget 项目，如 [@dojo/widgets](https://github.com/dojo/widgets)。
+第三方仓库必须是用 Dojo 开发的 Widget 项目，如 [@dojo/widgets](https://github.com/dojo/widgets)。
+
+注意：
+
+1. 引用的第三方 Widget 库必须要发布到 [npmjs.com](https://npmjs.com)；
+2. 本仓库不需要也无法发布到 [npmjs.com](https://npmjs.com)。
 
 ### component.json
 
@@ -52,10 +61,14 @@ component.json 用于描述 PROD 仓库的基本信息，包括如下属性：
 | category    | `string`   | 组件库的种类，值为 `Widget`             | 是   |
 | language    | `string`   | 组件库使用的编程语言，值为 `TypeScript` | 是   |
 | std         | `boolean`  | 是否标准库，默认为 `false`              | 否   |
-| dev         | `boolean`  | 是否用于开发模式，默认为 `false`        | 否   |
-| appType     | `string`   | app 类型，值为 `web`                    | 是   |
+| dev         | `boolean`  | 是否用于开发模式，值只能为 `false`      | 否   |
+| appType     | `string`   | app 类型，默认为 `web`                  | 是   |
 | api         | `object`   | 实现的 api 仓库信息                     | 是   |
 | components  | `string[]` | 存储 Widget 的路径                      | 是   |
+
+注意：
+
+1. `appType` 的可选值为：`web` 表示 web 部件，`android` 表示原生的 android 部件，`iOS` 表示原生的 iOS 部件，`wechatApp` 表示微信小程序等，当前仅支持 `web`。
 
 `api` 属性：
 
@@ -64,9 +77,9 @@ component.json 用于描述 PROD 仓库的基本信息，包括如下属性：
 | git     | `string` | git 地址                      | 是   |
 | version | `string` | 版本号，对应 git tag 的版本号 | 是   |
 
-`components` 属性中存储 Widget 的路径，如果引用本项目的 Widget，则直接使用相对路径，如 `src/button`；如果引用的是另一个仓库中的部件，则格式为 `{RepoName}:{WidgetPath}`，如引用 `@dojo/widgets` 中的 [Button](https://github.com/dojo/widgets/blob/master/src/button/index.tsx) 时，值为 `@dojo/widgets:src/button`。
+`components` 属性中存储 Widget 的路径，如果引用本项目的 Widget，则直接使用相对路径，如 `src/button`；如果引用的是另一个仓库中的部件，则使用项目名加 Widget 路径格式 `{RepoName}:{WidgetPath}`，如引用 `@dojo/widgets` 中的 [Button](https://github.com/dojo/widgets/blob/master/src/button/index.tsx) 按钮时，值为 `@dojo/widgets:src/button`。
 
-以下示例中演示了两类项目中的 `component` 值：
+以下示例中演示了包含了上述两种情况的 `components` 值：
 
 ```json
 {
@@ -88,14 +101,12 @@ component.json 用于描述 PROD 仓库的基本信息，包括如下属性：
 
 注意：
 
-1. PROD 项目和 IDE 项目都要实现 API 项目，使用 `api.git` 和 `api.version` 指向 API 项目地址和版本号；
-2. 如果 `components` 中都是引用第三方组件，则不需要 build。
-
-因此以下文件都是可选的。
+1. PROD 仓库和 IDE 仓库都要实现 API 仓库中的 API，使用 `api.git` 和 `api.version` 指向 API 仓库地址和版本号；
+2. 如果 `components` 中全都引用第三方仓库中的 Widget，则不需要 build 和发布到 [npmjs.com](https://npmjs.com)。
 
 ### package.json
 
-如果项目中包含自己实现的 Widget，则需要 build 这些部件并发布到 [npmjs.com](https://npmjs.com)，默认使用如下配置：
+如果项目中包含 Widget 实现，则需要 build 这些部件并发布到 [npmjs.com](https://npmjs.com)，默认使用如下配置：
 
 ```json
 {
@@ -230,9 +241,9 @@ TypeScript 配置文件，默认使用如下配置，可按需调整：
 }
 ```
 
-### index.ts
+### index.tsx
 
-Widget 名称和属性名要遵循 API 仓库中指定的规范。推荐实现基于函数的 Widget（相当于 react 的 [hook](https://reactjs.org/docs/hooks-intro.html)）。
+Widget 名称和属性名要遵循 API 仓库中指定的名称。推荐实现基于函数的 Widget（相当于 react 的 [hook](https://reactjs.org/docs/hooks-intro.html)）。
 
 如在 `src/button/index.tsx` 中创建一个 `Button` 部件：
 
@@ -256,7 +267,7 @@ export default factory(function Button({ properties }) {
 
 ### index.spec.tsx
 
-测试 `index.tsx` 的测试用例。本示例中使用 [intern](https://theintern.io/) 和 [@dojo/framework 中的测试 API](https://github.com/dojo/framework/tree/master/src/testing) 编写测试用例。示例代码如下：
+测试 `Button` 部件的测试用例。本示例中使用 [intern](https://theintern.io/) 和 [@dojo/framework 中的测试 API](https://github.com/dojo/framework/tree/master/src/testing) 编写测试用例。示例代码如下：
 
 > src/button/index.spec.tsx
 
@@ -282,4 +293,8 @@ describe('Button', () => {
 
 ## 编译
 
-在项目根目录下，先执行 `npm install` 安装依赖，然后执行 `npm run build`，以确认是否能编译通过。构建完成后，输出的内容保存在 `dist` 目录下。
+在项目根目录下：
+
+1. 先执行 `npm install` 安装依赖
+2. 然后执行 `npm run build`，以确认是否能编译通过，构建完成后，输出的内容保存在 `dist` 目录下
+3. 然后执行 `npm login` 和 `npm publish` 等命令发布到 [npmjs.com](https://npmjs.com)
