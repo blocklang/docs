@@ -1,22 +1,20 @@
 # `event`
 
-定义部件的事件。
+描述 Widget 的事件。
 
 ## 属性
 
-| 名称         | 类型      | 描述                     | 必填 |
-| ------------ | --------- | ------------------------ | ---- |
-| name         | `string`  | 属性名                   | 是   |
-| label        | `string`  | 属性显示名               | 否   |
-| defaultValue | `string`  | 属性默认值               | 否   |
-| valueType    | `string`  | 属性值的类型             | 是   |
-| description  | `string`  | 属性详细说明             | 否   |
-| required     | `boolean` | 是否必填，默认为 `false` | 否   |
-| arguments    | `Array`   | 输入参数列表             | 是   |
+| 名称        | 类型      | 描述                     | 必填 |
+| ----------- | --------- | ------------------------ | ---- |
+| name        | `string`  | 事件名                   | 是   |
+| label       | `string`  | 事件显示名               | 否   |
+| valueType   | `string`  | 属性值的类型             | 否   |
+| description | `string`  | 事件详细说明             | 否   |
+| arguments   | `Array`   | 输入参数列表             | 是   |
 
 注意：
 
-1. `valueType` 的值为：`function`
+1. `valueType` 的值只能为：`function`
 
 ## `arguments` 属性
 

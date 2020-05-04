@@ -8,23 +8,21 @@
 
 ## 项目结构
 
-API 仓库以增量的方式存储 API 变更记录。约定使用如下项目结构：
+API 仓库以增量的方式存储 Widget 以及 Widget 属性和事件的变更记录。约定使用如下项目结构：
 
 ```text
 项目根目录
     api.json                         - 存储 API 仓库的基本信息
-    components                       - 存储所有 API 的变更记录
-        {component}                  - 组件名称，使用中划线分割的小写字母，如 text-input
+    components                       - 存储所有 Widget 的变更记录
+        {component}                  - Widget 名称，约定使用中划线分割的小写字母，如部件名为 `TextInput` 时应写为 `text-input
             changelog                - 存储变更文件
-                {change_log}.json    - 描述 API 的变更记录，如新增一个 API
+                {change_log}.json    - 描述 Widget 以及 Widget 属性和事件的变更记录
                 {change_log}.json
 ```
 
 可在以上目录结构的基础上增加目录或文件，如在 `{component}` 目录下增加描述组件的 `README.md` 文件。
 
-示例
-
-如定义一个 `Button` 部件的项目结构：
+示例，如定义一个 `Button` 部件的项目结构：
 
 ```text
 项目根目录
@@ -64,7 +62,7 @@ API 仓库以增量的方式存储 API 变更记录。约定使用如下项目�
 
 ### {change_log}.json
 
-该文件用于增量描述 Widget 和属性的变更记录。
+该文件用于增量描述 Widget 以及 Widget 属性和事件的变更记录。
 
 `{change_log}` 可任意命名，但建议在文件名中包括时间戳和操作概述，如 `202004291112_create_widget.json` 中 `202004291112` 表示2020年4月29日11点12分，`create_widget` 表示创建一个 Widget。
 
@@ -73,6 +71,10 @@ API 仓库以增量的方式存储 API 变更记录。约定使用如下项目�
 1. [`createWidget`](./create-widget.md) - 创建一个 Widget
 2. [`addProperty`](./add-property.md) - 在 Widget 中增加一个或多个属性
 3. [`addEvent`](./add-event.md) - 在 Widget 中增加一个或多个事件
+
+<!-- 
+// TODO: 支持添加多个子部件，如 vue 的 slot 功能。
+-->
 
 注意：
 

@@ -1,6 +1,6 @@
 # `property`
 
-定义 Widget 的属性
+描述 Widget 的属性。
 
 ## 属性
 
@@ -12,7 +12,7 @@
 | valueType    | `string`  | 属性值的类型             | 是   |
 | description  | `string`  | 属性详细说明             | 否   |
 | required     | `boolean` | 是否必填，默认为 `false` | 否   |
-| options      | `Array`   | 输入参数列表             | 是   |
+| options      | `Array`   | 输入参数列表             | 否   |
 
 注意：
 
@@ -35,8 +35,19 @@
         "name": "name",
         "label": "名称",
         "defaultValue": "",
+        "valueType": "string"
+    }, {
+        "name": "type",
+        "label": "类型",
+        "defaultValue": "text",
         "valueType": "string",
-        "options": []
+        "options": [{
+            "value": "text",
+            "label": "文本"
+        },{
+            "value": "password",
+            "label": "密码"
+        }]
     }]
 }
 ```
