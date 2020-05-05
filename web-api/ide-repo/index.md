@@ -16,13 +16,13 @@
 
 ```text
 项目根目录
-    component.json        - 
-    package.json          - 
-    tsconfig.json         - 
-    .commitlintrc.json    - 
-    src                   - 
-        main.ts           - 
-        index.html        - 
+    component.json        - 存储 IDE 仓库的基本信息
+    package.json          - 项目配置文件
+    tsconfig.json         - TypeScript 配置文件
+    .commitlintrc.json    - commit lint 配置文件
+    src                   - 存放源文件
+        main.ts           - 项目主函数，用于往设计器中注册组件
+        index.html        - web 容器页面
 ```
 
 注意：可在以上目录结构的基础上增加目录或文件。因为本仓库只是提供通过插件的方式加载 web api 功能，直接使用 PROD 仓库中的实现，所以不需要 `{component}` 目录。
@@ -31,17 +31,17 @@
 
 component.json 用于描述 PROD 仓库的基本信息，包括如下属性：
 
-| 名称        | 类型       | 描述                                    | 必填 |
-| ----------- | ---------- | --------------------------------------- | ---- |
-| name        | `string`   | 组件库名称                              | 是   |
-| displayName | `string`   | 组件库的显示名                          | 否   |
-| description | `string`   | 组件库的详细介绍                        | 否   |
-| category    | `string`   | 组件库的种类，值为 `WebAPI`             | 是   |
-| language    | `string`   | 组件库使用的编程语言，值为 `TypeScript` | 是   |
-| std         | `boolean`  | 是否标准库，默认为 `false`              | 否   |
-| dev         | `boolean`  | 是否用于开发模式，值为 `true`           | 是   |
-| appType     | `string`   | app 类型，值为 `web`                    | 是   |
-| api         | `object`   | 实现的 api 仓库信息                     | 是   |
+| 名称        | 类型      | 描述                                    | 必填 |
+| ----------- | --------- | --------------------------------------- | ---- |
+| name        | `string`  | 组件库名称                              | 是   |
+| displayName | `string`  | 组件库的显示名                          | 否   |
+| description | `string`  | 组件库的详细介绍                        | 否   |
+| category    | `string`  | 组件库的种类，值为 `WebAPI`             | 是   |
+| language    | `string`  | 组件库使用的编程语言，值为 `TypeScript` | 是   |
+| std         | `boolean` | 是否标准库，默认为 `false`              | 否   |
+| dev         | `boolean` | 是否用于开发模式，值为 `true`           | 是   |
+| appType     | `string`  | app 类型，值为 `web`                    | 是   |
+| api         | `object`  | 实现的 api 仓库信息                     | 是   |
 
 api 属性：
 
@@ -192,7 +192,7 @@ TypeScript 配置文件，默认使用如下配置，可按需调整：
 
 ### src/main.ts
 
-往 blocklang 对象中注册 JavaScript 对象。
+往 [@blocklang/page-designer](https://github.com/blocklang/page-designer/) 中注册 JavaScript 对象。
 
 ```ts
 import * as blocklang from "designer-core/blocklang";
