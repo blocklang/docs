@@ -24,4 +24,4 @@ Block Lang 平台仅依赖于 API 仓库，不依赖于 PROD 仓库和 IDE 仓�
 
 * [Widget 组件库](widget/index.md) - 存储 UI widget（包含 API、PROD 和 IDE 三个仓库）
 * [Service 组件库](service/index.md) - 存储 RESTful API 描述（包含 API 仓库）
-* [Web Api 组件库](web-api/index.md) - 存储 JavaScript 对象（包含 API、PROD 和 IDE 三个仓库）
+* [Web Api 组件库](web-api/index.md) - 存储 JavaScript 函数（包含 API、PROD 和 IDE 三个仓库）
