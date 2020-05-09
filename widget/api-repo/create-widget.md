@@ -21,12 +21,29 @@
     "author": "jinzw",
     "changes": [{
         "createWidget": {
-            "name": "Button",
-            "label": "按钮",
+            "name": "TextInput",
+            "label": "文本输入框",
             "description": "",
             "canHasChildren": true,
-            "properties": [],
-            "events": []
+            "properties": [{
+                "name": "value",
+                "label": "值",
+                "defaultValue": "",
+                "valueType": "string"
+            }],
+            "events": [{
+                "name": "onValue",
+                "label": "输入值",
+                "valueType": "function",
+                "arguments": [
+                    {
+                        "name": "value",
+                        "label": "值",
+                        "defaultValue": "",
+                        "valueType": "string"
+                    }
+                ]
+            }]
         }
     }]
 }
