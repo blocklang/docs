@@ -16,7 +16,7 @@
 
 ```text
 项目根目录
-    component.json                   - 存储 IDE 仓库的基本信息
+    blocklang.json                   - 存储 IDE 仓库的基本信息
     package.json                     - 项目配置文件
     tsconfig.json                    - TypeScript 配置文件
     .dojorc                          - Dojo 配置文件
@@ -60,29 +60,27 @@
 4. Widget 的图标，放在 `icons.svg` 文件中
 5. 往设计器中注册本仓库中的 Widget，放在 `main.ts` 文件中
 6. 构建和发布 Widget 的命令脚本，放在 `package.json` 和 `.dojorc` 文件中
-7. 仓库基本信息，放在 `component.json` 文件中
+7. 仓库基本信息，放在 `blocklang.json` 文件中
 
 通过 `widget-1` 和 `widget-2` 两个 Widget，分别演示了编辑模式和预览模式两种情况下的项目结构。
 
 注意：可在以上目录结构的基础上增加目录或文件。如为每个 Widget 增加 `README.md` 文件等。
 
-### component.json
+### blocklang.json
 
-component.json 用于描述 IDE 仓库的基本信息，包括如下属性：
+blocklang.json 用于描述 IDE 仓库的基本信息，包括如下属性：
 
 | 名称        | 类型      | 描述                                    | 必填 |
 | ----------- | --------- | --------------------------------------- | ---- |
+| repo        | `string`  | 组件库类型，值为 `IDE`                  | 是   |
 | name        | `string`  | 组件库名称                              | 是   |
 | displayName | `string`  | 组件库的显示名                          | 否   |
 | description | `string`  | 组件库的详细介绍                        | 否   |
 | category    | `string`  | 组件库的种类，值为 `Widget`             | 是   |
 | language    | `string`  | 组件库使用的编程语言，值为 `TypeScript` | 是   |
 | std         | `boolean` | 是否标准库，默认为 `false`              | 否   |
-| dev         | `boolean` | 是否用于开发模式，值为 `true`           | 是   |
 | appType     | `string`  | app 类型，值为 `web`                    | 是   |
 | api         | `object`  | 实现的 api 仓库信息                     | 是   |
-
-IDE 仓库的 `dev` 值为 `true`。
 
 api 属性：
 
@@ -95,13 +93,13 @@ api 属性：
 
 ```json
 {
+  "repo": "IDE",
   "name": "ide-widgets",
   "displayName": "",
   "description": "",
   "category": "Widget",
   "language": "TypeScript",
   "std": false,
-  "dev": true,
   "appType": "web",
   "api": {
     "git": "https://github.com/blocklang/api-widgets.git",

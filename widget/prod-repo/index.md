@@ -10,9 +10,9 @@
 
 ## 项目结构
 
-PROD 项目分两种，一种是在项目内实现 Widget；另一种是第三方仓库中已实现了 Widget，但根目录下并不存在 `component.json` 文件，因此需要新建一个 PROD 仓库来存放 `component.json` 文件，并引用第三方仓库中的 Widget。
+PROD 项目分两种，一种是在项目内实现 Widget；另一种是第三方仓库中已实现了 Widget，但根目录下并不存在 `blocklang.json` 文件，因此需要新建一个 PROD 仓库来存放 `blocklang.json` 文件，并引用第三方仓库中的 Widget。
 
-在 `component.json` 文件也可以同时引用本项目和其他项目中的 Widget。
+在 `blocklang.json` 文件也可以同时引用本项目和其他项目中的 Widget。
 
 ### 在本仓库中实现 Widget
 
@@ -20,7 +20,7 @@ PROD 项目分两种，一种是在项目内实现 Widget；另一种是第三�
 
 ```text
 项目根目录
-    component.json            - 存储 PROD 仓库的基本信息
+    blocklang.json            - 存储 PROD 仓库的基本信息
     package.json              - 项目配置文件
     tsconfig.json             - TypeScript 配置文件
     .dojorc                   - dojo 配置文件，配置需要 build 的 Widget
@@ -35,11 +35,11 @@ PROD 项目分两种，一种是在项目内实现 Widget；另一种是第三�
 
 ### 本仓库引用第三方仓库中的 Widget
 
-仓库根目录中只包含一个 `component.json` 文件，在其中引用另一个仓库中的 Widget，项目结构如下：
+仓库根目录中只包含一个 `blocklang.json` 文件，在其中引用另一个仓库中的 Widget，项目结构如下：
 
 ```text
 项目根目录
-    component.json            - 存储 PROD 仓库的基本信息
+    blocklang.json            - 存储 PROD 仓库的基本信息
 ```
 
 第三方仓库必须是用 Dojo 开发的 Widget 项目，如 [@dojo/widgets](https://github.com/dojo/widgets)。
@@ -49,12 +49,13 @@ PROD 项目分两种，一种是在项目内实现 Widget；另一种是第三�
 1. 引用的第三方 Widget 库必须要发布到 [npmjs.com](https://npmjs.com)；
 2. 本仓库不需要也无法发布到 [npmjs.com](https://npmjs.com)。
 
-### component.json
+### blocklang.json
 
-component.json 用于描述 PROD 仓库的基本信息，包括如下属性：
+blocklang.json 用于描述 PROD 仓库的基本信息，包括如下属性：
 
 | 名称        | 类型       | 描述                                    | 必填 |
 | ----------- | ---------- | --------------------------------------- | ---- |
+| repo        | `string`   | 组件库类型，值为 `PROD`                 | 是   |
 | name        | `string`   | 组件库名称                              | 是   |
 | displayName | `string`   | 组件库的显示名                          | 否   |
 | description | `string`   | 组件库的详细介绍                        | 否   |
@@ -83,13 +84,13 @@ component.json 用于描述 PROD 仓库的基本信息，包括如下属性：
 
 ```json
 {
+  "repo": "PROD",
   "name": "web-func",
   "displayName": "",
   "description": "",
   "category": "WebAPI",
   "language": "TypeScript",
   "std": false,
-  "dev": false,
   "appType": "web",
   "api": {
     "git": "https://github.com/blocklang/api-widgets-bootstrap",

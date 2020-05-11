@@ -27,28 +27,30 @@ API 仓库以增量的方式存储 Widget 以及 Widget 属性和事件的变更
 
 ```text
 项目根目录
-    api.json
+    blocklang.json
     components
         202004091030__button
             202004091038__create_widget.json
             202004101010__add_property_value.json
 ```
 
-### api.json
+### blocklang.json
 
-`api.json` 用于描述 API 仓库的基本信息，包括如下属性：
+`blocklang.json` 用于描述 API 仓库的基本信息，包括如下属性：
 
-| 名称        | 类型       | 描述                        | 必填 |
-| ----------- | ---------- | --------------------------- | ---- |
-| name        | `string`   | 组件库名称                  | 是   |
-| displayName | `string`   | 组件库的显示名              | 否   |
-| description | `string`   | 组件库的详细介绍            | 否   |
-| category    | `string`   | 组件库的种类，值为 `Widget` | 是   |
+| 名称        | 类型     | 描述                        | 必填 |
+| ----------- | -------- | --------------------------- | ---- |
+| repo        | `string` | 组件库类型，值为 `API`      | 是   |
+| name        | `string` | 组件库名称                  | 是   |
+| displayName | `string` | 组件库的显示名              | 否   |
+| description | `string` | 组件库的详细介绍            | 否   |
+| category    | `string` | 组件库的种类，值为 `Widget` | 是   |
 
 示例
 
 ```json
 {
+  "repo": "API",
   "name": "api-widget",
   "displayName": "",
   "description": "",

@@ -12,7 +12,7 @@ API 仓库以增量的方式存储 RESTful API 变更记录。约定使用如下
 
 ```text
 项目根目录
-    api.json                         - 存储 API 仓库的基本信息
+    blocklang.json                   - 存储 API 仓库的基本信息
     changelog                        - 存储所有 API 的变更记录
         {resources}                  - 资源对象，尽量使用复数
             {url}                    - 资源 url + http method
@@ -33,7 +33,7 @@ API 仓库以增量的方式存储 RESTful API 变更记录。约定使用如下
 
 ```text
 项目根目录
-    api.json                                        - 存储 API 仓库的基本信息
+    blocklang.json                                  - 存储 API 仓库的基本信息
     changelog                                       - 存储所有 API 的变更记录
         202005081600__users                         - 用户资源，资源名推荐使用复数
             202005081601__users_GET                 - url，url 中有 / 时，可使用下划线代替，如 users/{userId} 应写为 users_{userId}
@@ -49,21 +49,23 @@ API 仓库以增量的方式存储 RESTful API 变更记录。约定使用如下
 
 可在以上目录结构的基础上增加目录或文件，如目录下增加描述 API 的 `README.md` 文件。
 
-### api.json
+### blocklang.json
 
-`api.json` 用于描述 API 仓库的基本信息，包括如下属性：
+`blocklang.json` 用于描述 API 仓库的基本信息，包括如下属性：
 
-| 名称        | 类型       | 描述                        | 必填 |
-| ----------- | ---------- | --------------------------- | ---- |
-| name        | `string`   | 组件库名称                  | 是   |
-| displayName | `string`   | 组件库的显示名              | 否   |
-| description | `string`   | 组件库的详细介绍            | 否   |
-| category    | `string`   | 组件库的种类，值为 `Service` | 是   |
+| 名称        | 类型     | 描述                         | 必填 |
+| ----------- | -------- | ---------------------------- | ---- |
+| repo        | `string` | 组件库类型，值为 `API`       | 是   |
+| name        | `string` | 组件库名称                   | 是   |
+| displayName | `string` | 组件库的显示名               | 否   |
+| description | `string` | 组件库的详细介绍             | 否   |
+| category    | `string` | 组件库的种类，值为 `Service` | 是   |
 
 示例
 
 ```json
 {
+  "repo": "API",
   "name": "api-xx-service",
   "displayName": "",
   "description": "",

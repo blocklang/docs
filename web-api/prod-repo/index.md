@@ -16,7 +16,7 @@
 
 ```text
 项目根目录
-    component.json           - 存储 PROD 仓库的基本信息
+    blocklang.json           - 存储 PROD 仓库的基本信息
     package.json             - 项目配置文件
     tsconfig.json            - TypeScript 配置文件
     .dojorc                  - dojo 配置文件
@@ -35,7 +35,7 @@
 
 ```text
 项目根目录
-    component.json
+    blocklang.json
     package.json
     tsconfig.json
     .dojorc
@@ -46,19 +46,20 @@
             index.spec.ts
 ```
 
-### component.json
+### blocklang.json
 
-component.json 用于描述 PROD 仓库的基本信息，包括如下属性：
+blocklang.json 用于描述 PROD 仓库的基本信息，包括如下属性：
 
 | 名称        | 类型       | 描述                                    | 必填 |
 | ----------- | ---------- | --------------------------------------- | ---- |
+| repo        | `string`   | 组件库类型，值为 `PROD`                 | 是   |
 | name        | `string`   | 组件库名称                              | 是   |
 | displayName | `string`   | 组件库的显示名                          | 否   |
 | description | `string`   | 组件库的详细介绍                        | 否   |
 | category    | `string`   | 组件库的种类，值为 `WebAPI`             | 是   |
 | language    | `string`   | 组件库使用的编程语言，值为 `TypeScript` | 是   |
 | std         | `boolean`  | 是否标准库，默认为 `false`              | 否   |
-| dev         | `boolean`  | 是否用于开发模式，值为 `false`           | 是   |
+| dev         | `boolean`  | 是否用于开发模式，值为 `false`          | 是   |
 | appType     | `string`   | app 类型，值为 `web`                    | 是   |
 | api         | `object`   | 实现的 api 仓库信息                     | 是   |
 | components  | `string[]` | 存储组件的相对路径                      | 是   |
@@ -74,13 +75,13 @@ api 属性：
 
 ```json
 {
+  "repo": "PROD",
   "name": "web-func",
   "displayName": "",
   "description": "",
   "category": "WebAPI",
   "language": "TypeScript",
   "std": false,
-  "dev": false,
   "appType": "web",
   "api": {
     "git": "https://github.com/blocklang/api-web-func.git",
