@@ -59,7 +59,6 @@ blocklang.json 用于描述 PROD 仓库的基本信息，包括如下属性：
 | category    | `string`   | 组件库的种类，值为 `WebAPI`             | 是   |
 | language    | `string`   | 组件库使用的编程语言，值为 `TypeScript` | 是   |
 | std         | `boolean`  | 是否标准库，默认为 `false`              | 否   |
-| dev         | `boolean`  | 是否用于开发模式，值为 `false`          | 是   |
 | appType     | `string`   | app 类型，值为 `web`                    | 是   |
 | api         | `object`   | 实现的 api 仓库信息                     | 是   |
 | components  | `string[]` | 存储组件的相对路径                      | 是   |

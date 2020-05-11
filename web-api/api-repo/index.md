@@ -15,7 +15,7 @@ API 仓库以增量的方式存储 API 变更记录。约定使用如下项目�
     blocklang.json                   - 存储 API 仓库的基本信息
     changelog                        - 存储所有 API 的变更记录
         {component}                  - 组件名称
-            {change-set}.json    - 描述 API 的变更记录，如新增一个 API
+            {change-set}.json        - 描述 API 的变更记录，如新增一个 API
             {change-set}.json
 ```
 
