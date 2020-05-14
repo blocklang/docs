@@ -80,6 +80,7 @@ blocklang.json 用于描述 IDE 仓库的基本信息，包括如下属性：
 | language    | `string`  | 组件库使用的编程语言，值为 `TypeScript` | 是   |
 | std         | `boolean` | 是否标准库，默认为 `false`              | 否   |
 | appType     | `string`  | app 类型，值为 `web`                    | 是   |
+| build       | `string`  | cli build 工具，值为 `dojo`             | 是   |
 | api         | `object`  | 实现的 api 仓库信息                     | 是   |
 
 api 属性：
@@ -101,6 +102,7 @@ api 属性：
   "language": "TypeScript",
   "std": false,
   "appType": "web",
+  "build": "dojo",
   "api": {
     "git": "https://github.com/blocklang/api-widgets.git",
     "version": "0.0.1"
