@@ -189,10 +189,11 @@ api 属性：
 
 注意：
 
-1. 在项目根目录下执行 `npm run build` 命令，会构建项目并将结果保存到根目录下的 `output/dist/` 目录中；
-2. **不**需要将 `output/dist/` 文件中的内容发布到 [npmjs](https://www.npmjs.com/)；
-3. 在提交代码时，git commit message 要遵循 [commit](https://www.conventionalcommits.org/en/v1.0.0/) 规范；
-4. 按需将依赖调整为最新版本。
+1. 必须要在 `package.json` 的 `script` 下配置 `build` 命令，用于构建 library；
+2. 在项目根目录下执行 `npm run build` 命令，会构建项目并将结果保存到根目录下的 `output/dist/` 目录中；
+3. **不**需要将 `output/dist/` 文件中的内容发布到 [npmjs](https://www.npmjs.com/)；
+4. 在提交代码时，git commit message 要遵循 [commit](https://www.conventionalcommits.org/en/v1.0.0/) 规范；
+5. 按需将依赖调整为最新版本。
 
 ### tsconfig.json
 
