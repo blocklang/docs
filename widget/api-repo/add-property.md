@@ -4,14 +4,13 @@
 
 ## 属性
 
-| 名称                          | 类型     | 描述              | 必填 |
-| ----------------------------- | -------- | ----------------- | ---- |
-| widgetName                    | `string` | Widget 名称       | 是   |
-| [properties](./properties.md) | `Array`  | Widget 的属性列表 | 是   |
+| 名称                          | 类型    | 描述              | 必填 |
+| ----------------------------- | ------- | ----------------- | ---- |
+| [properties](./properties.md) | `Array` | Widget 的属性列表 | 是   |
 
 注意：
 
-1. `widgetName` 不区分大小写
+1. 并不需要 `widgetName` 来指定 Widget，因为一个 Widget 的所有操作都是放在一个文件夹下的
 
 ## 示例
 
@@ -21,7 +20,6 @@
     "author": "jinzw",
     "changes": [{
         "addProperty": {
-            "widgetName": "Button",
             "properties": [{
                 "name": "title",
                 "label": "标题",

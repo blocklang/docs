@@ -48,6 +48,10 @@ API 仓库以增量的方式存储 API 变更记录。约定使用如下项目�
 | description | `string` | 组件库的详细介绍            | 否   |
 | category    | `string` | 组件库的种类，值为 `WebAPI` | 是   |
 
+注意：
+
+1. 只要发布后，`repo` 和 `category` 的值就不允许修改
+
 示例
 
 ```json

@@ -50,6 +50,10 @@ api 属性：
 | git     | `string` | git 地址                      | 是   |
 | version | `string` | 版本号，对应 git tag 的版本号 | 是   |
 
+注意：
+
+1. 只要发布后，`repo` 和 `category` 的值就不允许修改
+
 示例
 
 ```json

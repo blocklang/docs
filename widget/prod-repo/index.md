@@ -69,6 +69,7 @@ blocklang.json 用于描述 PROD 仓库的基本信息，包括如下属性：
 注意：
 
 1. `appType` 的可选值为：`web` 表示 web 部件，`android` 表示原生的 android 部件，`iOS` 表示原生的 iOS 部件，`wechatApp` 表示微信小程序等，当前仅支持 `web`。
+2. 只要发布后，`repo` 和 `category` 的值就不允许修改
 
 `api` 属性：
 

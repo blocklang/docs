@@ -70,18 +70,19 @@
 
 blocklang.json 用于描述 IDE 仓库的基本信息，包括如下属性：
 
-| 名称        | 类型      | 描述                                    | 必填 |
-| ----------- | --------- | --------------------------------------- | ---- |
-| repo        | `string`  | 组件库类型，值为 `IDE`                  | 是   |
-| name        | `string`  | 组件库名称                              | 是   |
-| displayName | `string`  | 组件库的显示名                          | 否   |
-| description | `string`  | 组件库的详细介绍                        | 否   |
-| category    | `string`  | 组件库的种类，值为 `Widget`             | 是   |
-| language    | `string`  | 组件库使用的编程语言，值为 `TypeScript` | 是   |
-| std         | `boolean` | 是否标准库，默认为 `false`              | 否   |
-| appType     | `string`  | app 类型，值为 `web`                    | 是   |
-| build       | `string`  | cli build 工具，值为 `dojo`             | 是   |
-| api         | `object`  | 实现的 api 仓库信息                     | 是   |
+| 名称        | 类型       | 描述                                    | 必填 |
+| ----------- | ---------- | --------------------------------------- | ---- |
+| repo        | `string`   | 组件库类型，值为 `IDE`                  | 是   |
+| name        | `string`   | 组件库名称                              | 是   |
+| displayName | `string`   | 组件库的显示名                          | 否   |
+| description | `string`   | 组件库的详细介绍                        | 否   |
+| category    | `string`   | 组件库的种类，值为 `Widget`             | 是   |
+| language    | `string`   | 组件库使用的编程语言，值为 `TypeScript` | 是   |
+| std         | `boolean`  | 是否标准库，默认为 `false`              | 否   |
+| appType     | `string`   | app 类型，值为 `web`                    | 是   |
+| build       | `string`   | cli build 工具，值为 `dojo`             | 是   |
+| api         | `object`   | 实现的 api 仓库信息                     | 是   |
+| components  | `string[]` | 存储 Widget 的相对路径                  | 是   |
 
 api 属性：
 
@@ -89,6 +90,10 @@ api 属性：
 | ------- | -------- | ----------------------------- | ---- |
 | git     | `string` | git 地址                      | 是   |
 | version | `string` | 版本号，对应 git tag 的版本号 | 是   |
+
+注意：
+
+1. 只要发布后，`repo` 和 `category` 的值就不允许修改
 
 示例
 
