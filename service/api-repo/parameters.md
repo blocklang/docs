@@ -11,7 +11,6 @@
 | [schema](./schema.md) | `Object`  | 参数值的数据类型                   | 是   |
 | description           | `string`  | 参数的详细说明                     | 否   |
 | required              | `boolean` | 是否必填，默认为 `true`            | 否   |
-| allowEmptyValue       | `boolean` | 参数值是否允许为空，默认为 `false` | 否   |
 
 注意：
 

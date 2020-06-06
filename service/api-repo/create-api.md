@@ -23,7 +23,6 @@
         "createApi": {
             "url": "users/{userId}",
             "httpMethod": "GET",
-            "label": "按钮",
             "description": "根据用户标识获取详细信息",
             "parameters": [{
                 "name": "userId",
