@@ -6,6 +6,7 @@
 
 | 名称                            | 类型     | 描述                                                | 必填 |
 | ------------------------------- | -------- | --------------------------------------------------- | ---- |
+| operationId                     | `string` | 操作的唯一标识符                                    | 是   |
 | url                             | `string` | 资源 url                                            | 是   |
 | httpMethod                      | `string` | http method，值为 `GET`、`POST`、`PUT`、`DELETE` 等 | 是   |
 | description                     | `string` | 详细说明                                            | 否   |
@@ -21,6 +22,7 @@
     "author": "jinzw",
     "changes": [{
         "createApi": {
+            "operationId": "getUserById",
             "url": "users/{userId}",
             "httpMethod": "GET",
             "description": "根据用户标识获取详细信息",
