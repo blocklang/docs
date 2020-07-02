@@ -37,3 +37,94 @@ API 仓库以增量方式描述 API 的变更，是由多组 `change-set` 按固
 
 1. 因为此文件是 **增量** 描述 API 变更记录的，`change-set` 文件没有发布，则可以随意调整；一旦发布，则不能修改和删除；
 2. 往组件市场注册时，只解析发布版和 master 分支，不解析预发布版。
+
+## Schemas
+
+通常情况下 Widget 属性和事件的输入参数等数据类型为 `string`、`number` 等**基本**数据类型。但在某些情况下也可能为 `object`，这时我们在 Schema 文件中定义 `Object` 对象的结构。
+
+存储 Schema 的目录结构如下
+
+```text
+项目根目录
+    blocklang.json
+    changelog/
+        202004091028__console
+            202004091038__new_console.json
+            202004101010__add_console_log.json
+    schemas/
+        202007020853__User
+            202007020854__new_schema.json
+```
+
+所有的 schema 定义存放在 `schemas` 目录下，一个 `schema` 对应一个目录，在目录中存放 schema 的变更记录。
+
+### 使用 `createSchema`自定义数据类型
+
+使用 `createSchema` 操作自定义数据类型。`schema` 属性定义参考 [schema](./service/api-repo/schema.md)。
+
+#### 示例
+
+```json
+{
+    "id": "create-schema-example",
+    "author": "jinzw",
+    "changes": [{
+        "createSchema": {
+            "name": "User",
+            "type": "object",
+            "properties": [{
+                "name": "id",
+                "type": "string"
+            }, {
+                "name": "name",
+                "type": "string"
+            }]
+        }
+    }]
+}
+```
+
+### 使用自定数据类型
+
+以下示例是在 `createWidget` 操作中使用自定义的 `User` 类型。
+
+```json
+{
+    "id": "create-widget-example",
+    "author": "jinzw",
+    "changes": [{
+        "createWidget": {
+            "name": "TextInput",
+            "label": "文本输入框",
+            "description": "",
+            "canHasChildren": true,
+            "properties": [{
+                "name": "loginUser",
+                "label": "登录用户",
+                "defaultValue": "",
+                "valueType": "User"
+            }],
+            "events": [{
+                "name": "onValue",
+                "label": "输入值",
+                "valueType": "function",
+                "arguments": [
+                    {
+                        "name": "loginUser",
+                        "label": "登录用户",
+                        "defaultValue": "",
+                        "valueType": "User"
+                    }
+                ]
+            }]
+        }
+    }]
+}
+```
+
+分别在 `properties` 和事件的 `arguments` 中的 `valueType` 中引用 `User` 类型。
+
+### 命名空间
+
+为了避免类型名重复的情况，可在 `name` 中包含命名空间，如 `name` 的值为 `a.User`，其中 `a` 为命名空间，用 `.` 分割。
+在引用时要包含命名空间。
