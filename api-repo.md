@@ -51,9 +51,9 @@ API 仓库以增量方式描述 API 的变更，是由多组 `change-set` 按固
         202004091028__console
             202004091038__new_console.json
             202004101010__add_console_log.json
-    schemas/
-        202007020853__User
-            202007020854__new_schema.json
+        schemas/
+            202007020853__User
+                202007020854__new_schema.json
 ```
 
 所有的 schema 定义存放在 `schemas` 目录下，一个 `schema` 对应一个目录，在目录中存放 schema 的变更记录。
